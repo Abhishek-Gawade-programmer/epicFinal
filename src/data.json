@@ -4,7 +4,7 @@
       "title": "Ad1",
       "image": "https://via.placeholder.com/300x200.png?text=Ad1",
       "link": "http://localhost:8000/admin/ads/marketingad/add/",
-      "right-des": "<div style=\"background-color: #6FA156; color: white; padding: 20px; border-radius: 15px; text-align: center; font-family: Arial, sans-serif; max-width: 300px; margin: auto;\"><p style=\"margin: 0;\">Save $$ when you shop, support Epic &amp; activate a free $10 donation.</p><p style=\"margin: 10px 0 20px;\">Get Give Freely via Epic's special link to the Chrome webstore.</p><img src=\"https://sjkdnfs.com/sdkfsld.png\" alt=\"Give Freely\" style=\"width: 50px; height: auto;\"></div>",
+      "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad1 ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quidem ratione repudiandae!",
       "countries": ["Yemen"]
     },
@@ -12,7 +12,7 @@
       "title": "Ad2",
       "image": "https://via.placeholder.com/300x200.png?text=Ad2",
       "link": "http://localhost:8000/admin/ads/marketingad2/add/",
-      "right-des": "<div style=\"background-color: #6FA156; color: white; padding: 20px; border-radius: 15px; text-align: center; font-family: Arial, sans-serif; max-width: 300px; margin: auto;\"><p style=\"margin: 0;\">Save $$ when you shop, support Epic &amp; activate a free $10 donation.</p><p style=\"margin: 10px 0 20px;\">Get Give Freely via Epic's special link to the Chrome webstore.</p><img src=\"https://sjkdnfs.com/sdkfsld.png\" alt=\"Give Freely\" style=\"width: 50px; height: auto;\"></div>",
+      "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the conhref=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad2 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       "countries": ["USA"]
     },
@@ -20,7 +20,7 @@
       "title": "Ad3",
       "image": "https://via.placeholder.com/300x200.png?text=Ad3",
       "link": "http://localhost:8000/admin/ads/marketingad3/add/",
-      "right-des": "<div style=\"background-color: #6FA156; color: white; padding: 20px; border-radius: 15px; text-align: center; font-family: Arial, sans-serif; max-width: 300px; margin: auto;\"><p style=\"margin: 0;\">Save $$ when you shop, support Epic &amp; activate a free $10 donation.</p><p style=\"margin: 10px 0 20px;\">Get Give Freely via Epic's special link to the Chrome webstore.</p><img src=\"https://sjkdnfs.com/sdkfsld.png\" alt=\"Give Freely\" style=\"width: 50px; height: auto;\"></div>",
+      "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the conhref=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad3 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "countries": ["Canada"]
     },
@@ -28,7 +28,7 @@
       "title": "Ad4",
       "image": "https://via.placeholder.com/300x200.png?text=Ad4",
       "link": "http://localhost:8000/admin/ads/marketingad4/add/",
-      "right-des": "<div style=\"background-color: #6FA156; color: white; padding: 20px; border-radius: 15px; text-align: center; font-family: Arial, sans-serif; max-width: 300px; margin: auto;\"><p style=\"margin: 0;\">Save $$ when you shop, support Epic &amp; activate a free $10 donation.</p><p style=\"margin: 10px 0 20px;\">Get Give Freely via Epic's special link to the Chrome webstore.</p><img src=\"https://sjkdnfs.com/sdkfsld.png\" alt=\"Give Freely\" style=\"width: 50px; height: auto;\"></div>",
+      "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the conhref=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad4 Corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.",
       "countries": ["Australia"]
     },
@@ -36,7 +36,7 @@
       "title": "Ad5",
       "image": "https://via.placeholder.com/300x200.png?text=Ad5",
       "link": "http://localhost:8000/admin/ads/marketingad5/add/",
-      "right-des": "<div style=\"background-color: #6FA156; color: white; padding: 20px; border-radius: 15px; text-align: center; font-family: Arial, sans-serif; max-width: 300px; margin: auto;\"><p style=\"margin: 0;\">Save $$ when you shop, support Epic &amp; activate a free $10 donation.</p><p style=\"margin: 10px 0 20px;\">Get Give Freely via Epic's special link to the Chrome webstore.</p><img src=\"https://sjkdnfs.com/sdkfsld.png\" alt=\"Give Freely\" style=\"width: 50px; height: auto;\"></div>",
+      "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad5 Eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam.",
       "countries": ["India"]
     },
@@ -44,7 +44,7 @@
       "title": "Ad6",
       "image": "https://via.placeholder.com/300x200.png?text=Ad6",
       "link": "http://localhost:8000/admin/ads/marketingad6/add/",
-      "right-des": "<div style=\"background-color: #6FA156; color: white; padding: 20px; border-radius: 15px; text-align: center; font-family: Arial, sans-serif; max-width: 300px; margin: auto;\"><p style=\"margin: 0;\">Save $$ when you shop, support Epic &amp; activate a free $10 donation.</p><p style=\"margin: 10px 0 20px;\">Get Give Freely via Epic's special link to the Chrome webstore.</p><img src=\"https://sjkdnfs.com/sdkfsld.png\" alt=\"Give Freely\" style=\"width: 50px; height: auto;\"></div>",
+      "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad6 Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio.",
       "countries": ["Germany"]
     }

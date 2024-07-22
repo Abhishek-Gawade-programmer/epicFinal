@@ -35,9 +35,9 @@ window.addEventListener("storage", function () {
   configNewPageLayout();
 });
 
-chrome.storage.onChanged.addListener(function () {
-  configNewPageLayout();
-});
+// chrome.storage.onChanged.addListener(function () {
+//   configNewPageLayout();
+// });
 
 function init() {
   configNewPageLayout();
@@ -70,7 +70,7 @@ function init() {
   // displayRandomAd(); // **************************************************************
   // Display the ad if it hasn't been displayed yet
   if (!adDisplayed) {
-    displayRandomAd();
+    // displayRandomAd(); //
   }
 }
 
@@ -119,6 +119,7 @@ async function configNewPageLayout() {
     // updateBackgroundImage();
     updateTextPrize();
     setItemBackground("fetchedAt", now.getTime().toString());
+    displayRandomAd(); //
   }
 
   showTimeAndDate(time === "true", date === "true");
@@ -1606,8 +1607,8 @@ function displayRandomAd() {
       console.log("Selected ad:", ad);
 
       // Update the descriptions in left-box and right-box
-      document.querySelector(".left-box p").innerHTML = ad["left-des"];
-      document.querySelector(".right-box p").innerHTML = ad["right-des"];
+      document.querySelector(".left-box").innerHTML = ad["left-des"];
+      document.querySelector(".right-box").innerHTML = ad["right-des"];
 
       // Update the background image for the ad
       document.body.style.backgroundImage = `url('${ad.image}')`;
