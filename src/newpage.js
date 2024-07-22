@@ -39,7 +39,47 @@ window.addEventListener("storage", function () {
 //   configNewPageLayout();
 // });
 
+async function getCountryCode() {
+  console.log("getCountryCode", "getCountryCode");
+  const getRawData = () => {
+    return new Promise((resolve) => {
+      const xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.open("GET", "https://update.epicbrowser.com/?country="); // Live link.
+      xmlhttp.setRequestHeader("x-api-key", "kTpOzP4m4S4rJlCa18Kv1CXdZifnNTL4");
+
+      xmlhttp.onreadystatechange = () => {
+        if (xmlhttp.readyState === 4) {
+          if (xmlhttp.status === 200) {
+            // console.log(response);
+            resolve(xmlhttp.responseText);
+          }
+          resolve(null);
+        }
+      };
+
+      xmlhttp.send();
+    });
+  };
+
+  const resp = await getRawData();
+  chrome.storage.local.set({ userCountry: resp });
+  return resp;
+}
+
 function init() {
+  chrome.storage.local.get(["uniqueUserId"], (result) => {
+    if (!result.uniqueUserId) {
+      const uniqueUserId = generateUUID();
+      chrome.storage.local.set({ uniqueUserId: uniqueUserId });
+    }
+  });
+  chrome.storage.local.get(["userCountry"], (result) => {
+    if (!result.userCountry) {
+      getCountryCode();
+    }
+  });
+
   configNewPageLayout();
   newSiteForm.onsubmit = addSite;
   newSiteForm.onreset = addSite;
@@ -1586,6 +1626,16 @@ async function setItemBackground(key, value) {
 // chrome.runtime.onStartup.addListener(() => {
 //   chrome.storage.local.set({ lastAdIndex: 0, adDisplayed: false }); // Reset to the first ad and flag
 // });
+
+// background.js
+
+function generateUUID() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
 
 function displayRandomAd() {
   fetch("/src/data.json")
