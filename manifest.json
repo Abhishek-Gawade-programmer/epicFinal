@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "author": "author",
+    "name": "Epic New Tab Page",
+    "version": "2.1",
+    "description": "Epic New Tab.",
+    "permissions": [
+        "topSites",
+        "storage",
+        "https://*.google.com/s2/",
+        "webRequest",
+        "webRequestBlocking",
+        "https://*.amazon.com/",
+        "https://*.ebay.com/",
+        "http://142.93.185.233/",
+        "https://www.finesage.com/cause.json",
+        "<all_urls>",
+        "history",
+        "cookies",
+        "management",
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "html/newpage.html"
+    },
+    // "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwgxte3xDN+olIUyeTt3llYdnY5FxcMCb4LQ58cTht7BqFbO0rRlhjMoLivH8PmvGpH7SLkm9Gechj2ozj6ZB1Lt4h/WvRoP6btAaADHA431MIHNZrOAGlwMvUQrNtu3c3tXyG1oJ94XvHC5aMMvoArp3AZ8sjlXHX3stz9jNc4ngEGIlY6gJO5UqR5trLOBOHXU+XftViEtYfDjUeIJxBgKgIYnETwGT/LJ7UbhapZkRTTuU2/5TS7lLgGGMuebua8BWB3vs0/KZjy4oOD1XJEoY6rUqtiMrxuXAKmsZxP1ZTFfUiX1xiLM6RZDAAFuJvlKoPcOmgY4kC9pUcwyoZQIDAQAB",
+    // We need ot use the same ID for the Speeddial. So using the key of earlier Speeddial.
+    "key":"AAAAB3NzaC1yc2EAAAABIwAAAIEA3gyS1NKFeOU9jntJYgsc1FpTelMefUgtTOqrs78HWMyhCwNRvs8vXPo4GGPzvY1/5GSG2Mb13NlYYlN5OJb677MKnjjNZA7+91lTneojUMqDFedUuiB1Ama2Ck+5SP7UgGhT8bNDXVl/M/b/n7B2tse3qQbplt1HP3NEaheHhoc=",
+    "background": {
+        "scripts": [ "src/background.js" ],
+        "persistent": true
+    }
+}

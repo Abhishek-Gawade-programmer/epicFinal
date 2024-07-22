@@ -1,0 +1,331 @@
+<html lang="en">
+
+<head>
+    <title>New Tab</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    <!-- <script src="../src/tab/jquery-1.9.1.js"></script> -->
+    <!-- <script src="../src/tab/jquery.1.5.2.min.js"></script> -->
+    <script src="../src/tab/jquery-1.8.0.min.js"></script>
+
+    <script type="module" src="../src/newpage.js"></script>
+    <script type="module" src="../src/imagesSet.js"></script>
+
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .context-menu {
+            width: 100px;
+            position: absolute;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 10px 20px rgb(64 64 64 / 5%);
+            padding: 5px 0;
+        }
+
+        .menu>li>a {
+            font: inherit;
+            border: 0;
+            padding: 10px 30px 10px 15px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            text-decoration: unset;
+            color: #000;
+            font-weight: 500;
+            transition: 0.5s linear;
+            -webkit-transition: 0.5s linear;
+            -moz-transition: 0.5s linear;
+            -ms-transition: 0.5s linear;
+            -o-transition: 0.5s linear;
+        }
+
+        .menu>li>a:hover {
+            background: #d3d3d3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cover">
+
+    </div>
+
+    <div id="open-first-install-modal" class="modal-window2">
+        <div>
+
+            <div class="first-install-modal-content">
+                <p class="first-install-modal-notice-text">
+                    Please note to provide more flexibility some key Epic Functionality such as our built-in VPN /
+                    encrypted
+                    proxy and AdBlock are user-controlled now and should be added via the <a id="extensionsPageNotice"
+                        href="#" target="_blank">Epic
+                        Extension page</a>.
+                </p>
+                <p>True, free private search on a large scale is impossible to offer at present. We have tried for years
+                    now
+                    to obtain another private search partnership since Google annulled ours. It's cost us hundreds of
+                    thousands of dollars (even with the donations from thousands of you) over the past few years to keep
+                    Epic going. Epic protects hundreds of thousands of people around the world everyday. Our encrypted
+                    proxy/VPN is powered by several hundred servers in eight different countries. To keep Epic an
+                    ongoing
+                    project, we had to become sustainable via our search options. Epic will now have two search options:
+                    free search by Yahoo & paid private search via EpicSearch.in.</p><br>
+
+                <p>When you use the default Yahoo-powered search in Epic, you'll get better search results and support
+                    our
+                    mission including more frequent releases and hundreds more servers for our encrypted proxy/VPN. All
+                    searches sent to Yahoo are encrypted for your privacy and security. According to their requirements,
+                    Yahoo search does bypass both our proxy and adblock. Upon ad click in Yahoo search, the proxy and
+                    adblock remain disabled for several seconds. Their goal is to insure the integrity of their search
+                    ad
+                    marketplace. Due to their policies, a few other Yahoo sites including Techcrunch, Engadget,
+                    Autoblog,
+                    HuffPo and AOL bypass our adblock. No other sites bypass our adblock or proxy so Epic works almost
+                    entirely as it always has except in respect to the Yahoo sites.</p><br>
+                <p>We believe it is impossible at present to offer honest, free private search. We've received many
+                    requests
+                    to support so-called private search engines such as Startpage, DuckDuckGo and others. To our
+                    knowledge
+                    there are no exceptions to Google/Bing mandates to share a user's IP address and or location both to
+                    retrieve search ads and upon search ad click. It is misleading to claim to be private if you're
+                    sharing
+                    your users' data with Google/Bing. Despite multiple requests for years, they refuse to explain to us
+                    how
+                    they work. We can't legally or ethically work with them without transparency.</p><br>
+                <p>EpicSearch sends only your search query to a third-party to retrieve search results, never any IP or
+                    other personal information. It continues to be the only intuitively true, at-scale, private search
+                    engine in the world. To sustain it and keep it ad-free, we charge a nominal $2.50 a month fee. All
+                    Epic
+                    users can use built-in Yahoo search for free.</p><br>
+                <p>Thank you for your support. You've kept us going as well as helped make privacy a key focus for all
+                    software. We're thrilled to now be on a sustainable path to soon serve millions of users everyday.
+                    Privacy is serious and it matters. This is Epic! As you know (even moreso with this message), we are
+                    proud of our mission and committed to transparency. Epic is our browser. Please share your thoughts
+                    and
+                    questions with me directly as always, alok at hiddenreflex dot com.</p>
+            </div>
+            <div class="first-install-modal-divider-line"></div>
+            <button type="button" class="first-install-modal-btn" id="first-install-modal-btn">I've got it. Close the
+                message</button>
+
+
+        </div>
+    </div>
+
+    <div id="open-modal" class="modal-window">
+        <div>
+            <a href="#" title="Close" class="modal-close">X Close</a>
+            <h1></h1>
+            <div>By default, Epic is powered by Yahoo Search which sustains Epic and keeps Epic free. If you would like
+                true, private search, you can subscribe to EpicSearch.in for
+                a nominal fee of <i class="darker">$2.50/month</i>. If you've subscribed to EpicSearch.in and wish to
+                change this Search Box, <span class="linkdiv"><button type=default class="change_search_epic">click here
+                        to set the above search box to EpicSearch.in</button></span></div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="search-engine-text"></div>
+    <div class="container" id="pageContainer">
+
+
+        <form class="searchbox-container" action="http://searchyahoo.epicbrowser.com/?searchterms=" autocomplete="off">
+
+            <input type="search" placeholder="Search" class="searchbox" name="q" id="searchText" list="suggestions"
+                required autofocus>
+            <div class="searchbutton">
+                <button type="submit">&#8981;</button>
+            </div>
+            <datalist id="suggestions"></datalist>
+
+            <!-- MY CODE -->
+            <div class="links_below_search pull-right" id="links_above_search">
+                <small>
+                    <span class="epic_extensio"><a href='' id="privacySettings">History / Data Deletion on Close</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- ***** For Epic: we hid the History control toggle and Clear Browsing data toggles.
+                    Because we can't access and change the preferences which we created for them on chrome://settings/privacy page. ***** -->
+                    <span class="epic_extensio"><a href=''
+                            id="extensionsPageDialog">Extensions</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="epic_extensio"><a href='' id="importBookmarkts">Import
+                            Bookmarks</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="search_options"><a href="#">Search Options</a></span></small>
+
+            </div>
+            <!-- MY CODE  -->
+
+
+            <!-- MY CODE -->
+            <div class="extensions-settings">
+                <!-- ***** For Epic: we hid the History control toggle and Clear Browsing data toggles.
+                    Because we can't access and change the preferences which we created for them on chrome://settings/privacy page. ***** -->
+                <!-- <div class="epic-browser-toggles" >
+                    <div class="option">
+                        <div class="label-onoff">Browsing history:</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="browsingHistory" class="onoffswitch-checkbox"
+                                id="browsingHistory" tabindex="1" checked>
+                            <label class="onoffswitch-label" for="browsingHistory">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option">
+                        <div class="label-onoff">Don't Delete Data On Close:</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="dontDeleteDataOnClose" class="onoffswitch-checkbox"
+                                id="dontDeleteDataOnClose" tabindex="1" checked>
+                            <label class="onoffswitch-label" for="dontDeleteDataOnClose">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- ********************************** -->
+
+                <div class="tracker-finger-count">
+                    <div>
+                        <h1 id="tracker-count">0</h1>
+                        <p>Trackers Blocked</p>
+                    </div>
+                    <div>
+                        <h1 id="fingerprint-count">0</h1>
+                        <p>Fingerprinting Attempts Blocked</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MY CODE -->
+        </form>
+
+
+
+
+
+
+
+        <!-- <div class="col-md-1"></div>
+        <div id="timeAndDateContainer"><span id="timeContainer"></span><span id="dateContainer"></span></div>
+        <div class="text-container" id="textContainer">
+            <h1 class="motivational-text">My Focus: Be Epic Everyday.</h1>
+            <p id="editMotivationalText" class="edit-text">(<u>edit</u>)
+                <div class="color-selector"> Font Color: <input type="color"></div>
+            </p>
+        </div>
+        <div class="toppages-container" id="sitesContainer">
+            <div class="toppages-label"><span id="mySitesTxt">My Sites.</span><span class="sites-edit-text"
+                    id="editMySites">(<u>edit</u>)</span>
+                <div class="color-selector"> Font Color: <input type="color"></div>
+            </div>
+            <div class="toppages-grid"></div>
+        </div> -->
+
+        <div class="flex-container">
+            <div class="left-box">
+                <p></p>
+            </div>
+            <div class="middle-box">
+                <div class="col-md-1"></div>
+                <div id="timeAndDateContainer"><span id="timeContainer"></span><span id="dateContainer"></span></div>
+                <div class="text-container" id="textContainer">
+                    <h1 class="motivational-text">My Focus: Be Epic Everyday.</h1>
+                    <p id="editMotivationalText" class="edit-text">(<u>edit</u>)
+                        <div class="color-selector"> Font Color: <input type="color"></div>
+                    </p>
+                </div>
+                <div class="toppages-container" id="sitesContainer">
+                    <div class="toppages-label"><span id="mySitesTxt">My Sites.</span><span class="sites-edit-text"
+                            id="editMySites">(<u>edit</u>)</span>
+                        <div class="color-selector"> Font Color: <input type="color"></div>
+                    </div>
+                    <div class="toppages-grid"></div>
+                </div>
+            </div>
+            <div class="right-box">
+                <p></p>
+            </div>
+        </div>
+
+
+        <div class="footer-container">
+            <div class="logo-bottom">
+                <img src="images/logo-test.png">
+            </div>
+            <div class="text-login-container">
+                <div class="text-prize"></div>
+                <div class="signin-signup"><a href="trackers.html">Click here to see who's tracking you in your other
+                        browsers</a>
+                </div>
+                <div class="account-info">
+                </div>
+            </div>
+            <a target="_blank" href="options.html" class="settings-button"><img src="images/settings.png"></a>
+        </div>
+    </div>
+
+    <div class="new-site-popup" align="center">
+      <form id="newSiteForm" method="POST" action="#">
+        <div align="center">
+                  <h1>Enter URL</h1>
+                  <div class="=new-site-popup-siteUrl">
+                  <input id="siteUrl" name="siteUrl" required>
+                  <p>e.g yahoo.com, ted.com</p>
+                  </div>
+                  <input name="siteId" id="siteId" style="display: none;">
+                </td>
+                <td>
+                  <div class="form-row">
+                    <input type="submit" name="submitBtn" value="Save">
+                    <input type="reset" name="resetBtn" value="Reset">
+                  </div>
+                </td>
+              </tr>
+            </table>
+        </div>
+      </form>
+    </div>
+
+<!-- ******************** -->
+
+    <div id="contextMenu" class="context-menu" style="display: none">
+        <ul class="menu">
+            <li id="editUserSite"><a href="#">Edit</a></li>
+            <li id="deleteUserSite"><a href="#">Delete</a></li>
+
+        </ul>
+    </div>
+
+
+
+</body>
+<!--
+        <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    -->
+
+</html>

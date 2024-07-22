@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>New Tab - Options</title>
+        <link rel="stylesheet" type="text/css" href="styles/options.css">
+        <script type="application/javascript" src="/src/options.js"></script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>New Tab Extension - Options</h1>
+                <div id="options-container">
+                    <div class="option">
+                        <div class="label-onoff">Background Image</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="showImageBackground" class="onoffswitch-checkbox" id="showImageBackground" tabindex="0" checked>
+                            <label class="onoffswitch-label" for="showImageBackground">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option color-selector-box">
+                        <div class="label-onoff" name="backgroundColor">Background Color</div>
+                        <input type="color" name="backgroundColor" id="backgroundColor" class="color-selector" value="#c5c6c3">
+                    </div>
+                    <div class="option">
+                        <div class="label-onoff">Dark Mode Search Box</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="enableDarkMode" class="onoffswitch-checkbox" id="enableDarkMode" tabindex="0" checked>
+                            <label class="onoffswitch-label" for="enableDarkMode">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="label-onoff">Show Time</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="showTime" class="onoffswitch-checkbox" id="showTime" tabindex="0">
+                            <label class="onoffswitch-label" for="showTime">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="label-onoff">Show Date</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="showDate" class="onoffswitch-checkbox" id="showDate" tabindex="0">
+                            <label class="onoffswitch-label" for="showDate">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="label-onoff">Focus Text</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="showText" class="onoffswitch-checkbox" id="showText" tabindex="0" checked>
+                            <label class="onoffswitch-label" for="showText">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option color-selector-box1">
+                        <div class="label-onoff" name="textFontColor">Text Font Color</div>
+                        <input type="color" name="textFontColor" id="textFontColor" class="color-selector" value="#FFFFFF">
+                    </div>
+                    <div class="option color-selector-box2">
+                        <div class="label-onoff" name="textBackgroundColor">Text Background Color</div>
+                        <input type="color" name="textBackgroundColor" id="textBackgroundColor" class="color-selector" value="#000000">
+                    </div>
+                    <div class="option color-selector-box3">
+                        <div class="label-onoff" name="textBackgroundOpacity">Text Background Opacity</div>
+                        <input type="range" name="textBackgroundOpacity" id="textBackgroundOpacity" min='0' max='255' value="0">
+                    </div>
+                    <div class="option">
+                        <div class="label-onoff">Top Sites</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="showSites" class="onoffswitch-checkbox" id="showSites" tabindex="1" checked>
+                            <label class="onoffswitch-label" for="showSites">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="label-onoff">Edit Button Background Color</div>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="showEditBackground" class="onoffswitch-checkbox" id="showEditBackground" tabindex="1" checked>
+                            <label class="onoffswitch-label" for="showEditBackground">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option">
+                    </div>
+                    <hr>
+                    <div class="user-information">
+                        <form id="userInfo">
+                            <div class="controls">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

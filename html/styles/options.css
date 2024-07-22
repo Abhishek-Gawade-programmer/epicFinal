@@ -1,0 +1,181 @@
+/************************************************************
+ * Options page Style
+ ***********************************************************/
+body > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #eaeaea;
+    min-height: 100%;
+}
+
+body > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: min-content;
+    max-width: 60%;
+    border: 2px outset darkgray;
+    border-radius: 15px;
+    background: white;
+}
+
+h1, h2, h3, h4 {
+    width: 90%;
+}
+
+#options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin-top: 2vh;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 5px;
+}
+
+.label-onoff {
+    display: inline-block;
+    font-size: large;
+    height: 40px;
+    line-height: 40px;
+}
+
+/**
+ * Color Selector
+ */
+.color-selector-box, .color-selector-box1, .color-selector-box2, .color-selector-box3 {
+    display: none;
+}
+
+.color-selector {
+    height: 32px;
+    width: 95px;
+    align-self: center;
+}
+
+/**
+ * Switch Styles
+ */
+.onoffswitch {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 27px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 36px; padding: 0; line-height: 36px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #59CA92; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #F06258; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 25px; margin: 5.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 50px;
+    border: 2px solid #999999; border-radius: 27px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+/**
+ * search engine text rules
+ */
+.search-engine-text {
+    font-size: medium;
+}
+
+hr {
+    width: 95%;
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+.user-information {
+    width: 95%;
+}
+
+input {
+    text-align: center;
+}
+
+form {
+    margin-top: 25px;
+}
+
+form > div {
+    margin: 3px;
+    text-align: center;
+}
+
+form > div > label {
+    text-align: left;
+    font-size: medium;
+    display: inline-block;
+    width: 30%;
+}
+
+form > div > input {
+    display: inline-block;
+    width: 30%;
+}
+
+form > p {
+    width: 100%;
+    font-style: italic;
+    text-align: justify;
+}
+
+.infoText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls {
+    text-align: center;
+}
+
+.controls input {
+    width: 110px;
+    margin: 3px;
+}
