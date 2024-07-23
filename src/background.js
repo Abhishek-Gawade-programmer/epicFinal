@@ -383,69 +383,38 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 });
 
 function sendWeeklyData() {
+  chrome.storage.local.get(
+    ["newTabCount", "uniqueUserId", "userCountry"],
+    (result) => {
+      const newTabCount = result.newTabCount || 0;
+      const uniqueUserId = result.uniqueUserId;
+      const userCountry = result.userCountry;
 
+      console.log("Weekly data:", newTabCount, uniqueUserId);
 
+      var data = JSON.stringify({
+        uniqueUserId: uniqueUserId,
+        newTabCount: newTabCount,
+        countryCode: userCountry,
+      });
 
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  chrome.storage.local.get(["newTabCount", "uniqueUserId"], (result) => {
-    const newTabCount = result.newTabCount || 0;
-    const uniqueUserId = result.uniqueUserId;
-    console.log("Weekly data:", newTabCount, uniqueUserId);
-    // Send the data to the server
-    const apiKey = "kTpOzP4mdfgdd4S4rJlCa18Kv1CXdZifnNTL4";
-    const url = `http://0.0.0.0:8000/`;
-
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", url, true);
-    xmlhttp.setRequestHeader("x-api-key", apiKey);
-
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4) {
-        // 4 means the request is done
-        if (xmlhttp.status == 200) {
-          // 200 means a successful return
-          const response = JSON.parse(xmlhttp.responseText);
-          console.log(response);
-
-          // Reset the view count after sending the data
-          chrome.storage.local.set({ tabViewCount: 0 });
-        } else {
-          console.error("Error:", xmlhttp.statusText);
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
         }
-      }
-    };
+      });
 
-    xmlhttp.send();
-  });
+      xhr.open("POST", "http://0.0.0.0:8000/data");
+      xhr.setRequestHeader("accept", "application/json");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("Authorization", "sdfksdkf@dfslkdmgkjio");
+
+      xhr.send(data);
+    }
+  );
 }
 function getAdsfromServer() {
   chrome.storage.local.get(["userCountry"], (result) => {
