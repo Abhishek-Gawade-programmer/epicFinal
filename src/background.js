@@ -383,13 +383,46 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 });
 
 function sendWeeklyData() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   chrome.storage.local.get(["newTabCount", "uniqueUserId"], (result) => {
     const newTabCount = result.newTabCount || 0;
     const uniqueUserId = result.uniqueUserId;
     console.log("Weekly data:", newTabCount, uniqueUserId);
     // Send the data to the server
     const apiKey = "kTpOzP4mdfgdd4S4rJlCa18Kv1CXdZifnNTL4";
-    const url = `https://ufgpdate.epicbrowser.com/?country=${countryCode}&views=${newTabCount}`;
+    const url = `http://0.0.0.0:8000/`;
 
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", url, true);

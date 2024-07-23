@@ -6,7 +6,7 @@
       "link": "http://localhost:8000/admin/ads/marketingad/add/",
       "right-des": "<div style=\"background-color: yellow;color:black; width: 300px; border: 5px solid green; padding: 50px; margin: 20px;\">This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href=\"givefreely.com\">give freely sign up</a> <img src=\"https://givefreely.com/_next/image/?url=%2Flogo%2Fgf-logo.png&w=384&q=75\"></img></div>",
       "left-des": "Ad1 ipsum, dolor sit amet consectetur adipisicing elit. Consectetur quidem ratione repudiandae!",
-      "countries": ["Yemen"]
+      "countries": ["Yemen"]  
     },
     {
       "title": "Ad2",
