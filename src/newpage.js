@@ -79,6 +79,11 @@ function init() {
       getCountryCode();
     }
   });
+  chrome.storage.local.get(["ads"], (result) => {
+    if (!result.ads) {
+      getAdsfromServer();
+    }
+  });
 
   configNewPageLayout();
   newSiteForm.onsubmit = addSite;
@@ -1656,41 +1661,52 @@ function generateUUID() {
   });
 }
 
+function getAdsfromServer() {
+  chrome.storage.local.get(["userCountry"], (result) => {
+    fetch("http://45.76.3.210/all-ads/" + result.userCountry)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const ads = data.ads;
+
+        if (ads.length === 0) {
+          console.error("No ads available in the data.");
+          return;
+        }
+        chrome.storage.local.set({ ads: ads });
+      })
+      .catch((error) => {
+        console.error("Error fetching the ads data:", error);
+      });
+  });
+}
+
 function displayRandomAd() {
-  fetch("/src/data.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const ads = data.ads;
-      if (ads.length === 0) {
-        console.error("No ads available in the data.");
-        return;
-      }
+  // Choose ad in serial format
 
-      // Choose ad in serial format
-      const ad = ads[lastAdIndex];
-      console.log("Selected ad:", ad);
+  chrome.storage.local.get("ads", function (data) {
+    let ads = data.ads;
 
-      // Update the descriptions in left-box and right-box
-      document.querySelector(".left-box").innerHTML = ad["left-des"];
-      document.querySelector(".right-box").innerHTML = ad["right-des"];
+    const ad = ads[lastAdIndex];
+    console.log("Selected ad:", ad);
 
-      // Update the background image for the ad
-      document.body.style.backgroundImage = `url('${ad.image}')`;
+    // Update the descriptions in left-box and right-box
+    document.querySelector(".left-box").innerHTML = ad["left_html"];
+    document.querySelector(".right-box").innerHTML = ad["right_html"];
 
-      // Update the index for next display
-      lastAdIndex = (lastAdIndex + 1) % ads.length;
+    // Update the background image for the ad
+    document.body.style.backgroundImage = `url('${ad.image}')`;
 
-      // Save the updated index and display status to storage
-      chrome.storage.local.set({ lastAdIndex: lastAdIndex, adDisplayed: true });
-    })
-    .catch((error) => {
-      console.error("Error fetching the ads data:", error);
-    });
+    // Update the index for next display
+    lastAdIndex = (lastAdIndex + 1) % ads.length;
+
+    // Save the updated index and display status to storage
+    chrome.storage.local.set({ lastAdIndex: lastAdIndex, adDisplayed: true });
+  });
 }
 
 // Listen for Chrome restart and reset ad index

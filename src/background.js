@@ -378,6 +378,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "weeklyAlarm") {
     sendWeeklyData();
+    getAdsfromServer();
   }
 });
 
@@ -411,5 +412,29 @@ function sendWeeklyData() {
     };
 
     xmlhttp.send();
+  });
+}
+function getAdsfromServer() {
+  chrome.storage.local.get(["userCountry"], (result) => {
+    fetch("http://45.76.3.210/all-ads/" + result.userCountry)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const ads = data.ads;
+
+        if (ads.length === 0) {
+          console.error("No ads available in the data.");
+          return;
+        }
+
+        chrome.storage.local.set({ ads: ads });
+      })
+      .catch((error) => {
+        console.error("Error fetching the ads data:", error);
+      });
   });
 }
