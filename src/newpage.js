@@ -1472,7 +1472,26 @@ $(document).on("click", "#deleteUserSite", function (ev) {
 //     const value = ev.target.checked;
 // });
 
-chrome.tabs.onUpdated.addListener(function () {
+function IncrementNewTabCount() {
+  chrome.storage.local.get("newTabCount", function (data) {
+    var count = data.newTabCount;
+    if (count == undefined) {
+      count = 0;
+    }
+    count++;
+    chrome.storage.local.set({
+      newTabCount: count,
+    });
+  });
+}
+
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  if (changeInfo.status === "complete" && tab.url === "chrome://newtab/") {
+    // Increment the new tab page view counter
+    console.log("New Tab page opened", tab.url);
+    IncrementNewTabCount();
+  }
+
   setTimeout(function () {
     updateTrackersCount();
     updateFingerprintCount();
