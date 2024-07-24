@@ -1685,10 +1685,11 @@ function getAdsfromServer() {
   });
 }
 
-function displayRandomAd() {
+async function displayRandomAd() {
   // Choose ad in serial format
+  let showBackgroundImg = (await getItemBackground("background")) === "true";
 
-  chrome.storage.local.get("ads", function (data) {
+  await chrome.storage.local.get("ads", function (data) {
     let ads = data.ads;
 
     const ad = ads[lastAdIndex];
@@ -1707,6 +1708,7 @@ function displayRandomAd() {
     // Save the updated index and display status to storage
     chrome.storage.local.set({ lastAdIndex: lastAdIndex, adDisplayed: true });
   });
+  if (!showBackgroundImg) return;
 }
 
 // Listen for Chrome restart and reset ad index
