@@ -407,7 +407,7 @@ function sendWeeklyData() {
         }
       });
 
-      xhr.open("POST", "http://0.0.0.0:8000/data");
+      xhr.open("POST", "http://140.82.10.217/data");
       xhr.setRequestHeader("accept", "application/json");
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("Authorization", "sdfksdkf@dfslkdmgkjio");
