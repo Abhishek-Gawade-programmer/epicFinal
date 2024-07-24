@@ -1687,6 +1687,7 @@ function getAdsfromServer() {
 
 async function displayRandomAd() {
   // Choose ad in serial format
+  let showBackgroundImg = (await getItemBackground("background")) === "true";
 
   await chrome.storage.local.get("ads", function (data) {
     let ads = data.ads;
