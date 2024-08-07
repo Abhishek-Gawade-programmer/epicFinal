@@ -304,6 +304,9 @@ chrome.runtime.onStartup.addListener(() => {
   chrome.storage.local.set({ newFSCount: 0 }, () => {
     console.log("totalBlockCount reset to zero on startup");
   });
+
+  // Incrementing lastIndexAd
+  incrementAdIndex();
 });
 
 // ***** Shilad: Transfer the dials from old to new speeddial *****
@@ -438,5 +441,21 @@ function getAdsfromServer() {
       .catch((error) => {
         console.error("Error fetching the ads data:", error);
       });
+  });
+}
+
+function incrementAdIndex() {
+  chrome.storage.local.get(["ads", "lastAdIndex"], function (data) {
+    let ads = data.ads;
+    let lastAdIndex = data.lastAdIndex || 0;
+    console.log("Ad index updated" + lastAdIndex);
+    // let nextAdIndex = Math.floor(Math.random() * ads.length);
+    let nextAdIndex = (lastAdIndex + 1) % ads.length;
+
+    // Update the lastAdIndex in storage
+    chrome.storage.local.set({
+      lastAdIndex: nextAdIndex,
+    });
+    console.log("Ad index updated" + lastAdIndex);
   });
 }
