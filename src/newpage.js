@@ -154,6 +154,9 @@ async function configNewPageLayout() {
 
   if (!displayRandomAd() || !background) {
     updateBackgroundImage();
+    document.querySelector(".left-box").style.marginRight = "7rem";
+    document.querySelector(".right-box").style.marginLeft = "7rem";
+    document.querySelector(".contaniner").style.marginTop = "5rem";
   }
 
   // if (!background) {
