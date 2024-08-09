@@ -129,8 +129,10 @@ async function configNewPageLayout() {
   // browsingHistory.checked = await getItemBackground('browsingHistory') === 'true';
   // dontDeleteDataOnClose.checked = await getItemBackground('dontDeleteDataOnClose') === 'true';
 
-  textContainer.style = "";
-  sitesContainer.style = "";
+  // textContainer.style = "";
+  // sitesContainer.style = "";
+  textContainer.style.display = "flex";
+  sitesContainer.style.display = "flex";
 
   const fetchedDate = new Date(parseInt(fetchedAt));
   const now = new Date();
@@ -144,18 +146,17 @@ async function configNewPageLayout() {
       fetchedDate.toLocaleDateString(),
       now.toLocaleDateString()
     );
-    // updateBackgroundImage();
+    updateBackgroundImage();
+    // displayRandomAd();
     updateTextPrize();
     setItemBackground("fetchedAt", now.getTime().toString());
-    displayRandomAd();
   }
 
   showTimeAndDate(time === "true", date === "true");
-
   if (!displayRandomAd() || !background) {
     updateBackgroundImage();
-    document.querySelector(".left-box").style.marginRight = "7rem";
-    document.querySelector(".right-box").style.marginLeft = "7rem";
+    // document.querySelector(".left-box").style.marginRight = "7rem";
+    // document.querySelector(".right-box").style.marginLeft = "7rem";
     document.querySelector(".contaniner").style.marginTop = "5rem";
   }
 
@@ -286,6 +287,8 @@ async function configNewPageLayout() {
   }
 
   chrome.topSites.get(populateSites);
+  textContainer.style.display = "flex";
+  sitesContainer.style.display = "flex";
 }
 
 // ***** Shilad : Creating an icon for the site - Addsite *****
