@@ -157,7 +157,9 @@ async function configNewPageLayout() {
     updateBackgroundImage();
     // document.querySelector(".left-box").style.marginRight = "7rem";
     // document.querySelector(".right-box").style.marginLeft = "7rem";
-    document.querySelector(".contaniner").style.marginTop = "5rem";
+    if (document.querySelector(".contaniner")) {
+      document.querySelector(".contaniner").style.marginTop = "5rem";
+    }
   }
 
   // if (!background) {
@@ -1684,16 +1686,19 @@ async function displayRandomAd() {
 
   chrome.storage.local.get(["ads", "lastAdIndex"], function (data) {
     let ads = data.ads;
-    let lastAdIndex = data.lastAdIndex || 0; // Default to the first ad if not set
-    console.log("last Ad Index in displayAd() " + lastAdIndex);
-    const ad = ads[lastAdIndex];
 
-    console.log("Selected ad:", ad);
+    if (ads) {
+      let lastAdIndex = data.lastAdIndex || 0; // Default to the first ad if not set
+      console.log("last Ad Index in displayAd() " + lastAdIndex);
+      const ad = ads[lastAdIndex];
 
-    document.querySelector(".left-box").innerHTML = ad["left_html"];
-    document.querySelector(".right-box").innerHTML = ad["right_html"];
+      console.log("Selected ad:", ad);
 
-    document.body.style.backgroundImage = `url('${ad.image}')`;
+      document.querySelector(".left-box").innerHTML = ad["left_html"];
+      document.querySelector(".right-box").innerHTML = ad["right_html"];
+
+      document.body.style.backgroundImage = `url('${ad.image}')`;
+    }
   });
 }
 
