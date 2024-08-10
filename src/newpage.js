@@ -23,10 +23,6 @@ window.addEventListener("storage", function () {
   configNewPageLayout();
 });
 
-// chrome.runtime.onStartup.addListener(() => {
-//   incrementAdIndex();
-// });
-
 async function getCountryCode() {
   console.log("getCountryCode", "getCountryCode");
   const getRawData = () => {
@@ -52,6 +48,7 @@ async function getCountryCode() {
 
   const resp = await getRawData();
   chrome.storage.local.set({ userCountry: resp });
+  console.log(resp);
   return resp;
 }
 
@@ -70,11 +67,18 @@ function init() {
   chrome.storage.local.get(["ads"], (result) => {
     if (!result.ads) {
       getAdsfromServer();
-      // incrementAdIndex();
     }
   });
 
   configNewPageLayout();
+  // Adding BackgroundImage
+  getCountryCode().then((result) => {
+    if (result === null) {
+      addBackgroundImage();
+    } else {
+      console.log("Country code obtained:", result);
+    }
+  });
   newSiteForm.onsubmit = addSite;
   newSiteForm.onreset = addSite;
   editMySites.onclick = editSites;
@@ -146,21 +150,22 @@ async function configNewPageLayout() {
       fetchedDate.toLocaleDateString(),
       now.toLocaleDateString()
     );
-    updateBackgroundImage();
-    // displayRandomAd();
+    // updateBackgroundImage();
+    addBackgroundImage();
+    displayRandomAd();
     updateTextPrize();
     setItemBackground("fetchedAt", now.getTime().toString());
   }
 
   showTimeAndDate(time === "true", date === "true");
-  if (!displayRandomAd() || !background) {
-    updateBackgroundImage();
-    // document.querySelector(".left-box").style.marginRight = "7rem";
-    // document.querySelector(".right-box").style.marginLeft = "7rem";
-    if (document.querySelector(".contaniner")) {
-      document.querySelector(".contaniner").style.marginTop = "5rem";
-    }
-  }
+  // if (!displayRandomAd() || !background) {
+  //   // updateBackgroundImage();
+  //   // document.querySelector(".left-box").style.marginRight = "7rem";
+  //   // document.querySelector(".right-box").style.marginLeft = "7rem";
+  //   // if (document.querySelector(".contaniner")) {
+  //   //   document.querySelector(".contaniner").style.marginTop = "5rem";
+  //   // }
+  // }
 
   // if (!background) {
   //   const color = await getItemBackground("color");
@@ -1702,110 +1707,20 @@ async function displayRandomAd() {
   });
 }
 
-// function incrementAdIndex() {
-//   chrome.storage.local.get(["ads", "lastAdIndex"], function (data) {
-//     let ads = data.ads;
-//     let lastAdIndex = data.lastAdIndex;
-//     console.log("Ad index updated" + lastAdIndex);
-//     // let nextAdIndex = Math.floor(Math.random() * ads.length);
-//     let nextAdIndex = (lastAdIndex + 1) % ads.length;
+async function addBackgroundImage() {
+  chrome.storage.local.get("lastImageIndex", (data) => {
+    let lastImageIndex = data.lastImageIndex || 0;
 
-//     // Update the lastAdIndex in storage
-//     chrome.storage.local.set({
-//       lastAdIndex: nextAdIndex,
-//     });
-//     console.log("Ad index updated" + lastAdIndex);
-//   });
-// }
+    const lastImage = ImagesSet[lastImageIndex];
 
-// async function displayRandomAd() {
-//   let showBackgroundImg = (await getItemBackground("background")) === "true";
-//   if (!showBackgroundImg) return;
+    document.body.style.backgroundImage =
+      "url('/html/images/RollPhotos/" + lastImage + "')";
 
-//   // Retrieve the flag, bgImg, left_html, and right_html from storage
-//   chrome.storage.local.get(
-//     ["flag", "bgImg", "left_html", "right_html"],
-//     function (result) {
-//       if (
-//         result.flag &&
-//         result.bgImg &&
-//         result.left_html &&
-//         result.right_html
-//       ) {
-//         // If flag is true, use the stored values
-//         document.body.style.backgroundImage = result.bgImg;
-//         document.querySelector(".left-box").innerHTML = result.left_html;
-//         document.querySelector(".right-box").innerHTML = result.right_html;
-//         return;
-//       }
+    let nextImageIndex = (lastImageIndex + 1) % ImagesSet.length;
 
-//       // If flag is false, select a random ad
-//       chrome.storage.local.get("ads", function (data) {
-//         let ads = data.ads;
-
-//         // Choose a random ad
-//         const ad = ads[Math.floor(Math.random() * ads.length)];
-//         console.log("Selected ad:", ad);
-
-//         // Update the descriptions in left-box and right-box
-//         let left_html = ad["left_html"];
-//         let right_html = ad["right_html"];
-//         document.querySelector(".left-box").innerHTML = left_html;
-//         document.querySelector(".right-box").innerHTML = right_html;
-
-//         // Update the background image for the ad
-//         let bgImg = `url('${ad.image}')`;
-//         document.body.style.backgroundImage = bgImg;
-
-//         // Set the flag, bgImg, left_html, and right_html in storage
-//         chrome.storage.local.set({
-//           flag: true,
-//           bgImg: bgImg,
-//           left_html: left_html,
-//           right_html: right_html,
-//         });
-//       });
-//     }
-//   );
-// }
-
-// chrome.runtime.onStartup.addListener(() => {
-//   chrome.storage.local.set({
-//     bgImg: null,
-//     flag: false,
-//     left_html: null,
-//     right_html: null,
-//   }); // Reset to the first ad and flag
-// });
-
-// Old Code
-// async function displayRandomAd() {
-//   // Choose ad in serial format
-//   let showBackgroundImg = (await getItemBackground("background")) === "true";
-
-//   await chrome.storage.local.get("ads", function (data) {
-//     let ads = data.ads;
-
-//     const ad = ads[lastAdIndex];
-//     console.log("Selected ad:", ad);
-
-//     // Update the descriptions in left-box and right-box
-//     document.querySelector(".left-box").innerHTML = ad["left_html"];
-//     document.querySelector(".right-box").innerHTML = ad["right_html"];
-
-//     // Update the background image for the ad
-//     document.body.style.backgroundImage = `url('${ad.image}')`;
-
-//     // Update the index for next display
-//     lastAdIndex = (lastAdIndex + 1) % ads.length;
-
-//     // Save the updated index and display status to storage
-//     chrome.storage.local.set({ lastAdIndex: lastAdIndex, adDisplayed: true });
-//   });
-//   if (!showBackgroundImg) return;
-// }
-
-// // Listen for Chrome restart and reset ad index
-// chrome.runtime.onStartup.addListener(() => {
-//   chrome.storage.local.set({ lastAdIndex: 0, adDisplayed: false }); // Reset to the first ad and flag
-// });
+    // Store the updated index
+    chrome.storage.local.set({ lastImageIndex: nextImageIndex }, () => {
+      console.log("Background image index updated to", nextImageIndex);
+    });
+  });
+}
