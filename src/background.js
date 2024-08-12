@@ -410,7 +410,7 @@ function sendWeeklyData() {
         }
       });
 
-      xhr.open("POST", "http://140.82.10.217/data");
+      xhr.open("POST", "https://ntdt.epicbrowser.com/data");
       xhr.setRequestHeader("accept", "application/json");
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("Authorization", "sdfksdkf@dfslkdmgkjio");
