@@ -374,7 +374,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
   // Create or update a weekly alarm
   chrome.alarms.create("weeklyAlarm", {
-    periodInMinutes: 1, // 10080 minutes = 7 days
+    periodInMinutes: 10080, // 10080 minutes = 7 days
   });
 });
 
