@@ -71,7 +71,6 @@ function init() {
   });
 
   configNewPageLayout();
-  // Adding BackgroundImage
   getCountryCode().then((result) => {
     if (result === null) {
       addBackgroundImage();
@@ -1708,6 +1707,12 @@ async function displayRandomAd() {
 }
 
 async function addBackgroundImage() {
+  // Store the length of ImagesSet in chrome local storage
+  chrome.storage.local.set({ imagesSetLength: ImagesSet.length }, () => {
+    console.log("ImagesSet length stored in Chrome local storage");
+  });
+
+  // Retrieve the lastImageIndex from chrome local storage
   chrome.storage.local.get("lastImageIndex", (data) => {
     let lastImageIndex = data.lastImageIndex || 0;
 
@@ -1715,12 +1720,5 @@ async function addBackgroundImage() {
 
     document.body.style.backgroundImage =
       "url('/html/images/RollPhotos/" + lastImage + "')";
-
-    let nextImageIndex = (lastImageIndex + 1) % ImagesSet.length;
-
-    // Store the updated index
-    chrome.storage.local.set({ lastImageIndex: nextImageIndex }, () => {
-      console.log("Background image index updated to", nextImageIndex);
-    });
   });
 }
