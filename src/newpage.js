@@ -1663,7 +1663,7 @@ function generateUUID() {
 
 function getAdsfromServer() {
   chrome.storage.local.get(["userCountry"], (result) => {
-    fetch("http://45.76.3.210/all-ads/" + result.userCountry)
+    fetch("https://ntsp.epicbrowser.com/all-ads/" + result.userCountry)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
