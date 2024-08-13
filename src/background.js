@@ -378,7 +378,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
   // Create or update a weekly alarm
   chrome.alarms.create("weeklyAlarm", {
-    periodInMinutes: 1, // 10080 minutes = 7 days
+    periodInMinutes: 10080, // 10080 minutes = 7 days
   });
 });
 
@@ -414,7 +414,7 @@ function sendWeeklyData() {
         }
       });
 
-      xhr.open("POST", "http://140.82.10.217/data");
+      xhr.open("POST", "https://ntdt.epicbrowser.com/data");
       xhr.setRequestHeader("accept", "application/json");
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.setRequestHeader("Authorization", "sdfksdkf@dfslkdmgkjio");
@@ -425,7 +425,7 @@ function sendWeeklyData() {
 }
 function getAdsfromServer() {
   chrome.storage.local.get(["userCountry"], (result) => {
-    fetch("http://45.76.3.210/all-ads/" + result.userCountry)
+    fetch("https://ntsp.epicbrowser.com/all-ads/" + result.userCountry)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
