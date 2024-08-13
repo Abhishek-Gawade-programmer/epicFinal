@@ -307,6 +307,10 @@ chrome.runtime.onStartup.addListener(() => {
 
   // Incrementing lastIndexAd
   incrementAdIndex();
+  console.log("Increment Ad Indx");
+  // Incrementing ImageSet index
+  incrementImageSetIndex();
+  console.log("Increment BgImg Indx");
 });
 
 // ***** Shilad: Transfer the dials from old to new speeddial *****
@@ -457,5 +461,27 @@ function incrementAdIndex() {
       lastAdIndex: nextAdIndex,
     });
     console.log("Ad index updated" + lastAdIndex);
+  });
+}
+
+function incrementImageSetIndex() {
+  // Retrieve the length of ImagesSet and lastImageIndex from chrome local storage
+  chrome.storage.local.get(["imagesSetLength", "lastImageIndex"], (data) => {
+    const imagesSetLength = data.imagesSetLength;
+
+    // Ensure imagesSetLength is available
+    if (imagesSetLength) {
+      let lastImageIndex = data.lastImageIndex || 0;
+
+      // Increment the index in a circular manner
+      let nextImageIndex = (lastImageIndex + 1) % imagesSetLength;
+
+      // Store the updated index in chrome local storage
+      chrome.storage.local.set({ lastImageIndex: nextImageIndex }, () => {
+        console.log("Background image index updated to", nextImageIndex);
+      });
+    } else {
+      console.error("ImagesSet length not found in storage.");
+    }
   });
 }
