@@ -380,11 +380,16 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.alarms.create("weeklyAlarm", {
     periodInMinutes: 10080, // 10080 minutes = 7 days
   });
+  chrome.alarms.create("adsRefresh", {
+    periodInMinutes: 1, // 10080 minutes = 7 days
+  });
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "weeklyAlarm") {
     sendWeeklyData();
+  }
+  if (alarm.name === "adsRefresh") {
     getAdsfromServer();
   }
 });
@@ -424,6 +429,8 @@ function sendWeeklyData() {
   );
 }
 function getAdsfromServer() {
+  console.log("Fetching ads from server");
+
   chrome.storage.local.get(["userCountry"], (result) => {
     fetch("https://ntsp.epicbrowser.com/all-ads/" + result.userCountry)
       .then((response) => {
@@ -436,7 +443,7 @@ function getAdsfromServer() {
         const ads = data.ads;
 
         if (ads.length === 0) {
-          console.error("No ads available in the data.");
+          chrome.storage.local.set({ ads: ads });
           return;
         }
 
