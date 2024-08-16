@@ -432,7 +432,7 @@ function getAdsfromServer() {
   console.log("Fetching ads from server");
 
   chrome.storage.local.get(["userCountry"], (result) => {
-    fetch("https://ntsp.epicbrowser.com/all-ads/" + result.userCountry)
+    fetch("https://ntsp.epicbrowser.com/  all-ads/" + result.userCountry)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -458,16 +458,19 @@ function getAdsfromServer() {
 function incrementAdIndex() {
   chrome.storage.local.get(["ads", "lastAdIndex"], function (data) {
     let ads = data.ads;
-    let lastAdIndex = data.lastAdIndex || 0;
-    console.log("Ad index updated" + lastAdIndex);
-    // let nextAdIndex = Math.floor(Math.random() * ads.length);
-    let nextAdIndex = (lastAdIndex + 1) % ads.length;
 
-    // Update the lastAdIndex in storage
-    chrome.storage.local.set({
-      lastAdIndex: nextAdIndex,
-    });
-    console.log("Ad index updated" + lastAdIndex);
+    if (ads && ads.length !== 0) {
+      let lastAdIndex = data.lastAdIndex || 0;
+      console.log("Ad index updated" + lastAdIndex);
+      // let nextAdIndex = Math.floor(Math.random() * ads.length);
+      let nextAdIndex = (lastAdIndex + 1) % ads.length;
+
+      // Update the lastAdIndex in storage
+      chrome.storage.local.set({
+        lastAdIndex: nextAdIndex,
+      });
+      console.log("Ad index updated" + lastAdIndex);
+    }
   });
 }
 
