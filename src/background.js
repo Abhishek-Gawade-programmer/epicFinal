@@ -432,7 +432,7 @@ function getAdsfromServer() {
   console.log("Fetching ads from server");
 
   chrome.storage.local.get(["userCountry"], (result) => {
-    fetch("https://ntsp.epicbrowser.com/  all-ads/" + result.userCountry)
+    fetch("https://ntsp.epicbrowser.com/all-ads/" + result.userCountry)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
