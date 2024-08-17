@@ -157,14 +157,6 @@ async function configNewPageLayout() {
   }
 
   showTimeAndDate(time === "true", date === "true");
-  // if (!displayRandomAd() || !background) {
-  //   // updateBackgroundImage();
-  //   // document.querySelector(".left-box").style.marginRight = "7rem";
-  //   // document.querySelector(".right-box").style.marginLeft = "7rem";
-  //   // if (document.querySelector(".contaniner")) {
-  //   //   document.querySelector(".contaniner").style.marginTop = "5rem";
-  //   // }
-  // }
 
   // if (!background) {
   //   const color = await getItemBackground("color");
