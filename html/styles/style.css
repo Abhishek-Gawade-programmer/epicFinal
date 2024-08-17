@@ -195,26 +195,26 @@ button {
 }
 
 /* Pass below style as innerText */
-.left-box {
-  /* margin-right: 1rem;
+/* .left-box {
+  margin-right: 1rem;
   background-color: rgba(255, 255, 255, 0.5);
   color: rgba(0, 0, 0, 1);
   border: 0.2rem solid #1a4e1c;
   padding: 1rem;
   width: 400px;
   border-radius: 5px;
-  text-align: center; */
+  text-align: center;
 }
 .right-box {
-  /* margin-left: 1rem;
+  margin-left: 1rem;
   background-color: rgba(55, 133, 58, 1);
   color: rgba(0, 0, 0, 1);
   border: 0.4rem solid rgba(26, 78, 28, 1);
   padding: 1rem;
   width: 350px;
   border-radius: 35px;
-  text-align: center; */
-}
+  text-align: center;
+} */
 
 /**
  * rules to time and date text
