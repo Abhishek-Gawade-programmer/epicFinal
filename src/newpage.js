@@ -271,15 +271,17 @@ async function configNewPageLayout() {
   const newPageState = text + sites;
 
   switch (newPageState) {
-    // case 0:
-    //   pageContainer.style.minHeight = "50vh";
-    //   pageContainer.style.marginTop = "50vh";
-    //   break;
-    // case 1:
-    //   pageContainer.style.minHeight = "60vh";
-    //   pageContainer.style.marginTop = "40vh";
-    //   break;
-    // case 2:
+    case 0:
+      pageContainer.style.minHeight = "80vh";
+      pageContainer.style.marginTop = "20vh";
+      // pageContainer.style.minHeight = "50vh";
+      // pageContainer.style.marginTop = "50vh";
+      break;
+    case 1:
+      pageContainer.style.minHeight = "60vh";
+      pageContainer.style.marginTop = "40vh";
+      break;
+    case 2:
     default:
       pageContainer.style = "";
   }
