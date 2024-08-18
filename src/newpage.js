@@ -107,9 +107,11 @@ function init() {
 
 /**
  * Configure the Page Layout following the user preferences defined
- * in the Options page.
+ * in the Options page.or
  */
 async function configNewPageLayout() {
+  // wait 100ms
+  await new Promise((resolve) => setTimeout(resolve, 100));
   const background = (await getItemBackground("background")) === "true";
   const darkmode = (await getItemBackground("darkmode")) === "true";
   const sites = (await getItemBackground("sites")) === "true";
@@ -139,6 +141,7 @@ async function configNewPageLayout() {
 
   const fetchedDate = new Date(parseInt(fetchedAt));
   const now = new Date();
+  console.log("userText", userText);
 
   if (
     !lastImage ||
@@ -894,6 +897,9 @@ async function editText(ev) {
   }
 
   if (text.innerText != before) {
+    console.log("text changed", text.innerText);
+    console.warn("text changed", before);
+
     setItemBackground("focustext", text.innerText);
   }
 }
@@ -1548,6 +1554,7 @@ async function updateFingerprintCount() {
 }
 
 async function getItemBackground(key) {
+  console.warn("getItemBackground", key);
   return promisify((r) =>
     chrome.runtime.sendMessage(
       {

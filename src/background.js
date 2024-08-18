@@ -381,7 +381,7 @@ chrome.runtime.onInstalled.addListener(() => {
     periodInMinutes: 10080, // 10080 minutes = 7 days
   });
   chrome.alarms.create("adsRefresh", {
-    periodInMinutes: 1, // 10080 minutes = 7 days
+    periodInMinutes: 60 * 2, // 10080 minutes = 7 days
   });
 });
 
